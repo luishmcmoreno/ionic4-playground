@@ -1,0 +1,43 @@
+<script>
+  class PageTutorial extends HTMLElement {
+  constructor() {
+    super();
+  }
+  async goToTestPage() {
+    const loading =  await this.loadingCtrl.create({
+      duration: 2000,
+      content: '2 segundos até navegar',
+    });
+    loading.present();
+    loading.onDidDismiss().then(() => {
+      this.navCtrl.push('page-test');
+    });
+  }
+
+  connectedCallback() {
+
+    this.navCtrl = document.querySelector('ion-nav');
+    this.loadingCtrl = document.querySelector('ion-loading-controller');
+
+    this.innerHTML = `
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+            <ion-title> Tutorial </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-button> Button </ion-button>
+      </ion-content> 
+    `;
+    const button = this.querySelector('ion-button');
+
+    button.addEventListener('click', () => {
+      this.goToTestPage();
+    });
+  }
+}
+window.customElements.define('page-tutorial', PageTutorial);
+</script>

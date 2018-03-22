@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ionic Test</title>
+</head>
+<body>
+
+  <ion-app>
+    <ion-router>
+      <ion-route-redirect from="/" to="/tutorial"></ion-route-redirect>
+      <ion-route url="/tutorial" component="page-tutorial"></ion-route>
+      <ion-route url="/test" component="page-test"></ion-route>
+      <ion-route url="/account" component="page-account"></ion-route>
+      <ion-route url="/signup" component="page-signup"></ion-route>
+      <ion-route url="/support" component="page-support"></ion-route>
+    </ion-router>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title> Menu </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="outer-content" mode="ios">
+        <ion-list>
+          <ion-list-header mode="ios">Itens do menu</ion-list-header>
+          <ion-item tappable> Item 1</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-nav main></ion-nav>
+    <ion-loading-controller></ion-loading-controller>
+  </ion-app>
+
+  <link rel="import" href="./pages/tutorial.html">
+  <link rel="import" href="./pages/test.html">
+
+  <script src="https://unpkg.com/@ionic/core@0.1.4-8/dist/ionic.js"></script>
+</body>
+</html>

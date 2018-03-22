@@ -1,0 +1,29 @@
+<script>
+    class PageTest extends HTMLElement {
+
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      console.log('connected');
+      this.innerHTML = `
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-buttons slot="start">
+              <ion-back-button></ion-back-button>
+            </ion-buttons>
+            <ion-title> Test </ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="outer-content">
+          <ion-list>
+            <ion-list-header>TestList </ion-list-header>
+            <ion-item> Tested!! </ion-item>
+          </ion-list>
+        </ion-content> 
+      `;
+    }
+  }
+  window.customElements.define('page-test', PageTest);
+  </script>
